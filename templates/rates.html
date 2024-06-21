@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block title %}
+<title>ისტორიული ვალუტის კურსი</title>
+{% endblock %}
+
+{% block content %}
+
+<p style="text-align: justify;
+          font-family: Arial, sans-serif;
+          margin-left: 450px;
+          margin-top: 15px;
+          line-height: 1.6;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+          font-size: 16px;
+          width: calc(41% - 12px)">
+    თუ გსურთ, რომ დაბეჭდოთ ლარის კურსი (2002 წლიდან) ისტორიული გაცვლითი კურსით <b>168 მსოფლიო ვალუტისთვის</b>, ჩვენი საიტი თქვენთვისაა.
+    შეიყვანეთ სასურველი ვალუტა, საიდანაც გსურთ კონვერტაცია და თარიღი YYYY-MM-DD ფორმატით.
+</p>
+<form method="post">
+    <div style="margin-bottom: 15px; margin-left: 450px">
+        <label for="currency" style="font-weight: bold; display: block; margin-bottom: 5px;">შეიყვანეთ ვალუტა:</label>
+        <input type="text" id="currency" name="currency" style="width: calc(13% - -43px); padding: 8px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px;" required>
+    </div>
+    <div style="margin-bottom: 15px; margin-left: 450px">
+        <label for="date" style="font-weight: bold; display: block; margin-bottom: 5px;">შეიყვანეთ თარიღი (YYYY-MM-DD):</label>
+        <input type="text" id="date" name="date" style="width: calc(13% - -43px); padding: 8px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px;" required>
+    </div>
+    <button type="submit" style="padding: 10px 20px; margin-left: 450px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">ძიება</button>
+</form>
+
+{% if rate %}
+<p style="text-align: center;
+          margin-top: 20px;
+          margin-left: 300px;
+          margin-right: 300px;
+          background-color: #c6c4c4;
+          border: 1px solid #ccc;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          font-size: 22px;
+          color: #333;">
+    აღნიშნულ თარიღში კურსი ლართან მიმართებით გახლდათ: <b>{{ rate }}</b></p>
+{% endif %}
+
+{% endblock %}

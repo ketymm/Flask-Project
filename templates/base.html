@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>მთავარი</title>
+    {% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<ul class="nav nav-pills justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" href="/home">მთავარი</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">ქართული ფულის ისტორია</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/bon">ქართული ბონის კატალოგი</a></li>
+      <li><a class="dropdown-item" href="/coupon">ქართული კუპონის კატალოგი</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/rates">ისტორიული ვალუტის კურსი</a>
+  </li>
+    {% if not session['username'] %}
+  <li class="nav-item">
+    <a class="nav-link" href="/login">შესვლა</a>
+  </li>
+    {% else %}
+  <li class="nav-item">
+    <a class="nav-link" href="/add">ვალუტის დამატება</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/table">ბაზა</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/logout">გამოსვლა</a>
+  </li>
+    {% endif %}
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
